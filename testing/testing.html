@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+    --dark-blue: #04021f;
+    --sky-blue: #00abf1;
+    --slider-height: 50rem;
+    --half-slider-height: calc(var(--slider-height)/2);
+}
+
+
+.anuj{
+    min-height: 100vh;
+    margin-top:-7rem;
+    /* background-color: var(--dark-blue); */
+    overflow: hidden;
+
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slides {
+    width: 10vw;
+    position: absolute;
+    left: 0;
+    transform: rotateZ(calc(360deg / 5 * var(--img-no))) translateY(var(--half-slider-height));
+    transform-origin: var(--half-slider-height);
+    cursor: pointer;
+
+}
+
+.slides img {
+    width: 100%;
+    border-radius: 50%;
+    transform: rotateZ(calc(360deg / -5 * var(--img-no))) scale(var(--scale, .8));
+    object-fit: cover;
+    transition: .4s ease;
+    user-select: none;
+
+}
+.slides img:hover {
+    
+    width: 120%;
+
+}
+.slides img.active{
+    --scale: 1.3;
+    outline-offset: .4rem;
+    /* outline: .1rem solid var(--sky-blue); */
+
+}
+
+.circular-slider {
+    position: relative;
+    width: var(--slider-height);
+    height: var(--slider-height);
+    color: #fff;
+    text-align: center;
+    top: 42vh;
+
+}
+
+.wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid crimson; */
+    border-radius: 50%;
+    transform: rotateZ(-360deg);
+    transition: 1s ease-in-out;
+}
+.chacater-name{
+    position: absolute;
+    font: 600 6rem sans-serif;
+    font-weight: bold;
+    white-space: pre;
+    color:#ece8e8;
+    /* -webkit-text-stroke: 1px var(--sky-blue); */
+    transform: translate(-80%, -450%);
+    opacity: 0;
+    transition: 0.7s ease-in-out, opacity .5s;
+    
+}
+.chacater-name.active{
+    transform: translate(0%, -450%);
+    transition: .5s ease-in-out, opacity 1s;
+    opacity: 1;
+}
+.description{
+    position: absolute;
+    bottom: 50%;
+    height: var(--half-slider-height);
+}
+.description .description_item{
+    width: 70%;
+    height: 0%;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto;
+    transition: .7s ease-in-out 1s,height .9s 1.1s;
+}
+.description .description_item.active{
+    opacity: 1;
+    height: 100%;
+}
+.description_item p{
+    margin: 1rem 0;
+}
+.description_item button{
+    padding: 1.3rem 3rem;
+    background-color: var(--sky-blue);
+    color:black;
+    cursor: pointer;
+    border-radius: 2rem;
+    margin: 1rem 0;
+}
+
+
+@media (max-width: 1204px) {
+    .anuj{
+        min-height: 100vh;
+        margin-top:-7rem;
+        /* background-color: var(--dark-blue); */
+        overflow: hidden;
+    
+    }
+    
+    .flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .slides {
+        width: 8vw;
+        position: absolute;
+        left: 0;
+        transform: rotateZ(calc(360deg / 5 * var(--img-no))) translateY(11rem);
+        transform-origin:11rem;
+        cursor: pointer;
+    
+    }
+    
+    .slides img {
+        width: 100%;
+        border-radius: 50%;
+        transform: rotateZ(calc(360deg / -5 * var(--img-no))) scale(var(--scale, .8));
+        object-fit: cover;
+        transition: .4s ease;
+        user-select: none;
+    
+    }
+    .slides img:hover {
+        
+        width: 120%;
+    
+    }
+    .slides img.active{
+        --scale: 1.3;
+        outline-offset: .4rem;
+        /* outline: .1rem solid var(--sky-blue); */
+    
+    }
+    
+    .circular-slider {
+        position: relative;
+        width: 10rem;
+        height: 10rem;
+        color: #fff;
+        text-align: center;
+        top: 42vh;
+    
+    }
+    
+    .wrapper {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        /* border: 1px solid crimson; */
+        border-radius: 50%;
+        transform: rotateZ(-360deg);
+        transition: 1s ease-in-out;
+    }
+    .chacater-name{
+        position: absolute;
+        font: 300 3rem sans-serif;
+        font-weight: bold;
+        white-space: pre;
+        color:#ece8e8;
+        /* -webkit-text-stroke: 1px var(--sky-blue); */
+        transform: translate(-80%, -450%);
+        opacity: 0;
+        transition: 0.7s ease-in-out, opacity .5s;
+        
+    }
+    .chacater-name.active{
+        transform: translate(0%, -650%);
+        transition: .5s ease-in-out, opacity 1s;
+        opacity: 1;
+    }
+    .description{
+        position: absolute;
+        bottom: 50%;
+        height: var(--half-slider-height);
+    }
+    .description .description_item{
+        width: 70%;
+        height: 0%;
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin:0 auto;
+        transition: .7s ease-in-out 1s,height .9s 1.1s;
+    }
+    .description .description_item.active{
+        opacity: 1;
+        height: 100%;
+    }
+    .description_item p{
+        margin: 1rem 0;
+    }
+    .description_item button{
+        padding: 1.3rem 3rem;
+        background-color: var(--sky-blue);
+        color:black;
+        cursor: pointer;
+        border-radius: 2rem;
+        margin: 1rem 0;
+    }
+  }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 flex-center anuj">
+                <div class="circular-slider flex-center">
+                    <h1 class="chacater-name active">Vintage & Antique</h1>
+                    <ul class="wrapper flex-center">
+                        <li class="slides" style="--img-no:1;"><img src="../image/8.png" alt=""></li>
+                        <li class="slides" style="--img-no:2;"><img src="../image/11.png" class="active" alt=""></li>
+                        <li class="slides" style="--img-no:3;"><img src="../image/20.png" alt=""></li>
+                        <li class="slides" style="--img-no:4;"><img src="../image/8.png" alt=""></li>
+                        <li class="slides" style="--img-no:5;"><img src="../image/11.png" alt=""></li>
+                    </ul>
+                    <div class="description">
+                        <div class="description_item">
+                            <h2 class="text-dark" style="font-weight: bold;">hidden Halo</h2>
+                            <p class="text-dark">$<b>3500</b><br> 
+                                <span style="color:#bcc1c2; font-weight: bold; font-size:0.8rem;">Take 10% off for a limited time<br> Use code: LOVE10</span>
+                            </p>
+                           
+                        </div>
+                        <div class="description_item active">
+                            <h2 class="text-dark" style="font-weight: bold;">Vintage & Antique</h2>
+                            <p class="text-dark">$<b>4500</b><br> 
+                                <span style="color:#bcc1c2; font-weight: bold; font-size:0.8rem;">Take 20% off for a limited time<br> Use code: LOVE20</span>
+                            </p>
+                           
+                        </div>
+                        <div class="description_item">
+                            <h2 class="text-dark" style="font-weight: bold;">Pave</h2>
+                            <p class="text-dark">$<b>2500</b><br> 
+                                <span style="color:#bcc1c2; font-weight: bold; font-size:0.8rem;">Take 5% off for a limited time<br> Use code: LOVE05</span>
+                            </p>
+                            
+                        </div>
+                        <div class="description_item">
+                            <h2 class="text-dark" style="font-weight: bold;">hidden Halo</h2>
+                            <p class="text-dark">$<b>3500</b><br> 
+                                <span style="color:#bcc1c2; font-weight: bold; font-size:0.8rem;">Take 10% off for a limited time<br> Use code: LOVE10</span>
+                            </p>
+                           
+                        </div>
+                        <div class="description_item">
+                            <h2 class="text-dark" style="font-weight: bold;">Vintage & Antique</h2>
+                            <p class="text-dark">$<b>4500</b><br> 
+                                <span style="color:#bcc1c2; font-weight: bold; font-size:0.8rem;">Take 20% off for a limited time<br> Use code: LOVE20</span>
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        const circular_slider = document.querySelector('.wrapper'),
+         chacater_name= document.querySelector('.chacater-name'),
+            slides = document.querySelectorAll('.slides'),
+            description_items = document.querySelectorAll('.description_item'),
+            images = document.querySelectorAll('.slides img');
+        slides.forEach((slide, i) => {
+
+            slide.onclick = () => {
+                circular_slider.style.transform = `rotateZ(-${360 / 5 * (i+4)}deg)`;
+                chacater_name.classList.remove('active');
+                
+                setTimeout(()=>{
+                    chacater_name.textContent=description_items[i].querySelector('h2').textContent;
+                    chacater_name.classList.add('active');
+                },800)
+                
+
+
+                images.forEach((img,i)=>{
+                    img.style.setProperty('--img-no',2);
+                    img.classList.remove('active');
+                    description_items[i].classList.remove('active');
+                })
+
+
+                description_items[i].classList.add('active');
+                slide.querySelector('img').classList.add('active');
+            }
+        })
+    </script>
+</body>
+</html>
